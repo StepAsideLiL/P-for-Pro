@@ -1,4 +1,7 @@
+import { Divide } from "lucide-react";
+import Image from "next/image";
 import { ImageResponse } from "next/server";
+import favicon from "./favicon.ico";
 
 // Route segment config
 // export const runtime = "edge";
@@ -31,6 +34,7 @@ export default function Icon() {
         P.
       </div>
     ),
+
     // ImageResponse options
     {
       // For convenience, we can re-use the exported icons size metadata

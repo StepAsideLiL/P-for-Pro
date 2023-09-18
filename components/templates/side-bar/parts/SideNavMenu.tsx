@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { navlinks } from "@/lib/config/navlinks";
+import { mainNavLinks } from "@/lib/config/navlinks";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -13,7 +13,7 @@ const SideNavMenu = ({ className = "" }: { className?: string }) => {
   return (
     <nav className={className}>
       <ul className="flex flex-col gap-4">
-        {navlinks.map((list, index) => (
+        {mainNavLinks.map((list, index) => (
           <ActiveLink
             key={index}
             href={list.path}

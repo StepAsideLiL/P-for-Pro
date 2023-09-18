@@ -1,68 +1,35 @@
-"use client";
-
 import LogoLink from "@/components/custom-ui/LogoLink";
-import { navlinks } from "@/lib/config/navlinks";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import SearchForm from "./parts/SearchForm";
 import ProfileLogin from "./parts/ProfileLogin";
+import NavMenu from "./parts/NavMenu";
+import SidebarToggle from "./parts/SidebarToggle";
+import SideSearch from "./parts/SideSearch";
 
 const Navbar = () => {
-  const pathname = usePathname();
-
   return (
     <header>
       <div className="container flex items-center justify-between max-w-full py-5 mx-auto">
-        <div className="flex items-center gap-10">
+        <div className="flex items-center gap-5 md:gap-10">
+          <SidebarToggle />
+
           <LogoLink />
 
-          <nav>
-            <ul className="flex items-center gap-4">
-              {navlinks.map((list, index) => (
-                <ActiveLink
-                  key={index}
-                  href={list.path}
-                  active={pathname === list.path ? true : false}
-                >
-                  {list.title}
-                </ActiveLink>
-              ))}
-            </ul>
-          </nav>
+          <div className="hidden md:block">
+            <NavMenu className="flex items-center gap-4" />
+          </div>
         </div>
 
-        <div className="flex items-center gap-10">
-          <SearchForm />
+        <div className="flex items-center gap-5 md:gap-10">
+          <div className="hidden md:block">
+            <SearchForm />
+          </div>
 
           <ProfileLogin />
+
+          <SideSearch />
         </div>
       </div>
     </header>
-  );
-};
-
-const ActiveLink = ({
-  children,
-  href = "",
-  active = false,
-}: {
-  children: React.ReactNode;
-  href?: string;
-  active?: boolean;
-}) => {
-  return (
-    <li>
-      <Link
-        href={href}
-        className={cn(
-          "text-sm font-medium hover:border-b-2 hover:border-b-black",
-          active && "border-b-2 border-b-black"
-        )}
-      >
-        {children}
-      </Link>
-    </li>
   );
 };
 

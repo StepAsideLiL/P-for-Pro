@@ -4,7 +4,7 @@ import Link from "next/link";
 import React from "react";
 
 const ProfileLogin = () => {
-  if (true) {
+  if (false) {
     return (
       <div>
         <Avatar>
@@ -20,7 +20,7 @@ const ProfileLogin = () => {
 
   return (
     <div className="flex items-center gap-3">
-      <Button variant="ghost" asChild>
+      <Button variant="ghost" asChild className="hidden md:inline-block">
         <Link href="/signin">Sign in</Link>
       </Button>
 

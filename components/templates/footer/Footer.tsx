@@ -5,12 +5,13 @@ import Resources from "./parts/Resources";
 import Company from "./parts/Company";
 import SocialLinks from "./parts/SocialLinks";
 import Copywrite from "./parts/Copywrite";
+import ResponsiveFooter from "./parts/ResponsiveFooter";
 
 const Footer = () => {
   return (
     <footer className="p-2">
       <div className="w-full p-10 text-white bg-black rounded">
-        <div className="flex items-start w-full pb-10">
+        <div className="flex-col items-start hidden w-full gap-5 pb-10 md:flex md:flex-row md:gap-0">
           <ForTalents className="w-full" />
 
           <ForClients className="w-full" />
@@ -19,6 +20,8 @@ const Footer = () => {
 
           <Company className="w-full" />
         </div>
+
+        <ResponsiveFooter className="block pb-10 md:hidden" />
 
         <SocialLinks />
 

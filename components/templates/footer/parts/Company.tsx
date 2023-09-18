@@ -7,16 +7,26 @@ import React from "react";
 const Company = ({ className = "" }: { className?: string }) => {
   return (
     <FooterNavSection className={className}>
-      <FooterNavHeader>Company</FooterNavHeader>
+      <CompanyTitle />
 
-      <nav>
-        <ul>
-          {footerCompanyNavLinks.map((list, index) => (
-            <FooterNavLink key={index}>{list.title}</FooterNavLink>
-          ))}
-        </ul>
-      </nav>
+      <CompanyNav />
     </FooterNavSection>
+  );
+};
+
+export const CompanyTitle = () => {
+  return <FooterNavHeader>Company</FooterNavHeader>;
+};
+
+export const CompanyNav = () => {
+  return (
+    <nav>
+      <ul>
+        {footerCompanyNavLinks.map((list, index) => (
+          <FooterNavLink key={index}>{list.title}</FooterNavLink>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

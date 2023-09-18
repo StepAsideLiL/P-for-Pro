@@ -7,16 +7,26 @@ import React from "react";
 const ForTalents = ({ className = "" }: { className?: string }) => {
   return (
     <FooterNavSection className={className}>
-      <FooterNavHeader>For Talents</FooterNavHeader>
+      <ForTalentsTitle />
 
-      <nav>
-        <ul>
-          {footerTalentsNavLinks.map((list, index) => (
-            <FooterNavLink key={index}>{list.title}</FooterNavLink>
-          ))}
-        </ul>
-      </nav>
+      <ForTalentsNav />
     </FooterNavSection>
+  );
+};
+
+export const ForTalentsTitle = () => {
+  return <FooterNavHeader>For Talents</FooterNavHeader>;
+};
+
+export const ForTalentsNav = () => {
+  return (
+    <nav>
+      <ul>
+        {footerTalentsNavLinks.map((list, index) => (
+          <FooterNavLink key={index}>{list.title}</FooterNavLink>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

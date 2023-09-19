@@ -20,7 +20,7 @@ const ProfileLogin = () => {
 
   return (
     <div className="flex items-center gap-3">
-      <Button variant="ghost" asChild className="hidden md:inline-block">
+      <Button variant="ghost" asChild className="hidden lg:inline-block">
         <Link href="/signin">Sign in</Link>
       </Button>
 

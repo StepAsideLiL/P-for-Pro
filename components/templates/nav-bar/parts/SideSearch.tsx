@@ -6,7 +6,7 @@ import SearchForm from "./SearchForm";
 
 const SideSearch = ({ className = "" }: { className?: string }) => {
   return (
-    <div className={cn("block md:hidden", className)}>
+    <div className={cn("block lg:hidden", className)}>
       <Sheet>
         <SheetTrigger asChild>
           <Search size="24px" className="cursor-pointer" />

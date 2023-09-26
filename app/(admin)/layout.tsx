@@ -1,7 +1,11 @@
 import AdminFooter from "@/components/templates/admin-footer/AdminFooter";
-import AdminNavbar from "@/components/templates/admin-nav-bar/AdminNavbar";
 import AdminSidebar from "@/components/templates/admin-side-bar/AdminSidebar";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Admin - P for Pro",
+};
 
 const AdminLayout = ({ children }: { children: React.ReactNode }) => {
   return (

@@ -6,7 +6,12 @@ import Skills from "@/components/pages/add-options/Skills";
 import WorkAgreements from "@/components/pages/add-options/WorkAgreements";
 import WorkStatus from "@/components/pages/add-options/WorkStatus";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Add Options - P for Pro",
+};
 
 const AddOptionsPage = () => {
   return (

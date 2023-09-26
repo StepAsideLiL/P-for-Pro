@@ -1,5 +1,10 @@
 import Main from "@/components/custom-ui/Main";
 import Overview from "@/components/pages/super/Overview";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Admin Home - P for Pro",
+};
 
 const AdminHomePage = () => {
   return (

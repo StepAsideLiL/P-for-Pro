@@ -20,7 +20,7 @@ const AdminOverviewCard = ({
     <Card className="w-full">
       <CardHeader>
         <CardDescription className="flex items-center justify-between">
-          <p>{title}</p>
+          <span>{title}</span>
 
           {icon}
         </CardDescription>

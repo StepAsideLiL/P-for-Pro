@@ -88,3 +88,18 @@ export const footerCompanyNavLinks = [
     path: "contant-us",
   },
 ];
+
+export const adminSidebarNavLinks = [
+  {
+    title: "Admin Home",
+    path: "/super",
+  },
+  {
+    title: "Add Options",
+    path: "/super/add-options",
+  },
+  {
+    title: "User List",
+    path: "/super/user-list",
+  },
+];

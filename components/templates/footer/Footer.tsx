@@ -4,7 +4,7 @@ import ForClients from "./parts/ForClients";
 import Resources from "./parts/Resources";
 import Company from "./parts/Company";
 import SocialLinks from "./parts/SocialLinks";
-import Copywrite from "./parts/Copywrite";
+import Copywrite from "@/components/custom-ui/Copywrite";
 import ResponsiveFooter from "./parts/ResponsiveFooter";
 
 const Footer = () => {

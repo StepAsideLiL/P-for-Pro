@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  username String @unique
+  email    String @unique
+  password String
+  role     Role   @default(USER)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  profile     Profile?
+  posts       Post?
+  connections Connection?
+}
+
+model Profile {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String?
+  photo       String?
+  coverPhoto  String?
+  phone       String?
+  about       String?
+  dateOfBirth DateTime?
+  location    String?
+  personality String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User   User   @relation(fields: [userId], references: [id])
+  userId String @unique @db.ObjectId
+}
+
+model Post {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  body String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User   User   @relation(fields: [userId], references: [id])
+  userId String @unique @db.ObjectId
+}
+
+model Connection {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  jobId String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User   User   @relation(fields: [userId], references: [id])
+  userId String @unique @db.ObjectId
+}
+
+enum Role {
+  USER
+  RECRUITER
+  ADMIN
+}

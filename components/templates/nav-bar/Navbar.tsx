@@ -2,15 +2,15 @@ import LogoLink from "@/components/custom-ui/LogoLink";
 import SearchForm from "./parts/SearchForm";
 import ProfileLogin from "./parts/ProfileLogin";
 import NavMenu from "./parts/NavMenu";
-import SidebarToggle from "./parts/SidebarToggle";
 import SideSearch from "./parts/SideSearch";
+import Sidebar from "./parts/Sidebar";
 
 const Navbar = () => {
   return (
     <header>
       <div className="container flex items-center justify-between max-w-full py-5 mx-auto">
         <div className="flex items-center gap-5 lg:gap-10">
-          <SidebarToggle />
+          <Sidebar className="block lg:hidden" />
 
           <LogoLink />
 

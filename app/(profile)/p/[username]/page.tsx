@@ -1,4 +1,6 @@
 import Main from "@/components/custom-ui/Main";
+import AppliedJobTab from "@/components/pages/profile/profile-page/AppliedJobTab";
+import JobPostTab from "@/components/pages/profile/profile-page/JobPostTab";
 import PostTab from "@/components/pages/profile/profile-page/PostTab";
 import ProfileTab from "@/components/pages/profile/profile-page/ProfileTab";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -48,9 +50,13 @@ const ProfilePage = ({ params }: { params: { username: string } }) => {
           <PostTab />
         </TabsContent>
 
-        <TabsContent value="jobPost">Job Posts</TabsContent>
+        <TabsContent value="jobPost">
+          <JobPostTab />
+        </TabsContent>
 
-        <TabsContent value="appliedJobs">Applied Jobs</TabsContent>
+        <TabsContent value="appliedJobs">
+          <AppliedJobTab />
+        </TabsContent>
       </Tabs>
     </Main>
   );

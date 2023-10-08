@@ -1,6 +1,8 @@
 import { inter } from "@/lib/config/fonts";
 import "./globals.css";
 import type { Metadata } from "next";
+import Providers from "./Providers";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "P for Pro",
@@ -14,7 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          {children}
+
+          <Toaster />
+        </Providers>
+      </body>
     </html>
   );
 }

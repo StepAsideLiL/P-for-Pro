@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +15,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { signIn, useSession } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   email: z.string(),
@@ -22,6 +25,17 @@ const formSchema = z.object({
 });
 
 const SigninForm = () => {
+  const [disable, setDisable] = useState(false);
+  const route = useRouter();
+  const session = useSession();
+
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      route.push("/");
+    }
+    console.log(session);
+  }, [route, session, session?.status]);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,7 +45,20 @@ const SigninForm = () => {
   });
 
   const formSubmission = (value: z.infer<typeof formSchema>) => {
-    console.log(value);
+    setDisable(true);
+
+    signIn("credentials", { ...value, redirect: false })
+      .then((res) => {
+        if (res?.ok === false) {
+          toast.error("Invalid credentials!");
+        }
+        if (res?.ok === true) {
+          route.push("/");
+        }
+      })
+      .finally(() => {
+        setDisable(false);
+      });
   };
 
   return (
@@ -78,7 +105,9 @@ const SigninForm = () => {
             )}
           />
 
-          <Button type="submit">Sign In</Button>
+          <Button type="submit" disabled={disable}>
+            Sign In
+          </Button>
         </form>
       </Form>
     </CardContent>

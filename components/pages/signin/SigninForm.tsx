@@ -49,6 +49,7 @@ const SigninForm = () => {
 
     signIn("credentials", { ...value, redirect: false })
       .then((res) => {
+        console.log(res);
         if (res?.ok === false) {
           toast.error("Invalid credentials!");
         }

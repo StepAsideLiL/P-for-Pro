@@ -3,9 +3,15 @@ import { NextResponse } from "next/server";
 
 import prisma from "@/lib/prismadb";
 
+type RequestBody = {
+  username: string;
+  email: string;
+  password: string;
+};
+
 export async function POST(request: Request) {
   try {
-    const { username, email, password } = await request.json();
+    const { username, email, password } = (await request.json()) as RequestBody;
 
     const hashedPassword = await bcrytp.hash(password, 12);
     // const hashedPassword = password;

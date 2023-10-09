@@ -11,7 +11,6 @@ export const authOptions: AuthOptions = {
     CredentialsProvider({
       name: "credentials",
       credentials: {
-        username: { label: "username", type: "text" },
         email: { label: "email", type: "text" },
         password: { label: "password", type: "password" },
       },
@@ -34,7 +33,6 @@ export const authOptions: AuthOptions = {
           credentials.password,
           user.hashedPassword
         );
-        // const isIncorrectPassword = true;
 
         if (!isIncorrectPassword) {
           throw new Error("Invalid credentials");

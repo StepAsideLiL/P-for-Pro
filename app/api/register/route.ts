@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   try {
     const { username, email, password } = (await request.json()) as RequestBody;
 
-    const hashedPassword = await bcrytp.hash(password, 12);
+    const hashedPassword: string = await bcrytp.hash(password, 12);
     // const hashedPassword = password;
 
     const user = await prisma.user.create({

@@ -4,18 +4,32 @@ import JobPostTab from "@/components/pages/profile/profile-page/JobPostTab";
 import PostTab from "@/components/pages/profile/profile-page/PostTab";
 import ProfileTab from "@/components/pages/profile/profile-page/ProfileTab";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Briefcase, CheckSquare, PenLine, UserCircle2 } from "lucide-react";
+import { Briefcase, CheckSquare, PenLine, User } from "lucide-react";
 import React from "react";
 
-const ProfilePage = ({ params }: { params: { username: string } }) => {
+const ProfilePage = ({
+  params,
+  searchParams,
+}: {
+  params: { username: string };
+  searchParams: { tab: string };
+}) => {
+  console.log(searchParams.tab);
+
+  const tabs = ["profile", "posts", "jobPost", "appliedJobs"];
+
+  const defaultTab = tabs.includes(searchParams.tab)
+    ? searchParams.tab
+    : "profile";
+
   return (
     <Main className="container max-w-full mx-auto">
       {/* <p>Username: {params?.username}</p> */}
-      <Tabs defaultValue="profile">
+      <Tabs defaultValue={defaultTab}>
         <TabsList>
           <TabsTrigger value="profile" className="space-x-2">
             <span>
-              <UserCircle2 size={"24px"} />
+              <User size={"24px"} />
             </span>
             <span>Profile</span>
           </TabsTrigger>

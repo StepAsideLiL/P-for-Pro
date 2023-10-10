@@ -1,19 +1,18 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import ProfileAvatarDropdown from "@/components/custom-ui/ProfileAvatarDropdown";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
+import { getServerSession } from "next-auth";
+import { getLoggedinUser } from "@/lib/get-data/user";
 
-const ProfileLogin = () => {
-  if (false) {
+const ProfileLogin = async () => {
+  const session = await getServerSession();
+  const user = await getLoggedinUser(session?.user?.email);
+
+  if (user) {
     return (
       <div>
-        <Avatar>
-          <AvatarImage
-            src="https://images2.imgbox.com/17/34/njSaBSSj_o.jpg"
-            alt="@hello"
-          />
-          <AvatarFallback>AB</AvatarFallback>
-        </Avatar>
+        <ProfileAvatarDropdown user={user} />
       </div>
     );
   }

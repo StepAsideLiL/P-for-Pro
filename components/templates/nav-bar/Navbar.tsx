@@ -5,7 +5,7 @@ import NavMenu from "./parts/NavMenu";
 import SideSearch from "./parts/SideSearch";
 import Sidebar from "./parts/Sidebar";
 
-const Navbar = () => {
+const Navbar = async () => {
   return (
     <header>
       <div className="container flex items-center justify-between max-w-full py-5 mx-auto">

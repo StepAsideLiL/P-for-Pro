@@ -14,18 +14,16 @@ const ProfilePage = ({
   params: { username: string };
   searchParams: { tab: string };
 }) => {
-  console.log(searchParams.tab);
-
   const tabs = ["profile", "posts", "jobPost", "appliedJobs"];
 
-  const defaultTab = tabs.includes(searchParams.tab)
+  const seletedTab = tabs.includes(searchParams.tab)
     ? searchParams.tab
     : "profile";
 
   return (
     <Main className="container max-w-full mx-auto">
       {/* <p>Username: {params?.username}</p> */}
-      <Tabs defaultValue={defaultTab}>
+      <Tabs defaultValue={seletedTab} value={seletedTab}>
         <TabsList>
           <TabsTrigger value="profile" className="space-x-2">
             <span>

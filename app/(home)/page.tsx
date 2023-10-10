@@ -1,18 +1,18 @@
 import Main from "@/components/custom-ui/Main";
 import Banner from "@/components/pages/home/Banner";
-// import TestReactQuery from "@/components/pages/home/TestReactQuery";
-// import { api } from "@/lib/axios-api";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth/next";
 import SignoutBtn from "@/components/pages/home/SignoutBtn";
+import { api } from "@/lib/axios-api";
+import TestReactQuery from "@/components/pages/home/TestReactQuery";
 
 export const metadata: Metadata = {
   title: "Home - P for Pro",
 };
 
 const HomePage = async () => {
-  // const res = await api.get("test");
-  // const users = await res.data;
+  const res = await api.get("/test");
+  const users = await res.data;
 
   const session = await getServerSession();
 
@@ -20,7 +20,7 @@ const HomePage = async () => {
     <Main className="">
       <Banner />
 
-      {/* <TestReactQuery users={users} /> */}
+      <TestReactQuery users={users} />
 
       <div>
         <pre>{JSON.stringify(session)}</pre>

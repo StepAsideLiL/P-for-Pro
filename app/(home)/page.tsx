@@ -5,6 +5,8 @@ import { getServerSession } from "next-auth/next";
 import SignoutBtn from "@/components/pages/home/SignoutBtn";
 import { api } from "@/lib/axios-api";
 import TestReactQuery from "@/components/pages/home/TestReactQuery";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Home - P for Pro",
@@ -19,6 +21,10 @@ const HomePage = async () => {
   return (
     <Main className="">
       <Banner />
+
+      <Button asChild>
+        <Link href={"/setup-user-profile"}>Setup User Profile</Link>
+      </Button>
 
       <TestReactQuery users={users} />
 

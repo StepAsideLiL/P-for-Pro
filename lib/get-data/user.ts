@@ -1,6 +1,10 @@
-import { api } from "../axios-api";
+import { getServerSession } from "next-auth";
+import { api } from "@/lib/axios-api";
 
-export const getLoggedinUser = async (email: string | null | undefined) => {
+export const getLoggedinUser = async () => {
+  const session = await getServerSession();
+  const email = session?.user?.email;
+
   if (!email) {
     return null;
   }

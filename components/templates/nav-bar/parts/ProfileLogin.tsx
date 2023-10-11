@@ -2,12 +2,10 @@ import ProfileAvatarDropdown from "@/components/custom-ui/ProfileAvatarDropdown"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
-import { getServerSession } from "next-auth";
 import { getLoggedinUser } from "@/lib/get-data/user";
 
 const ProfileLogin = async () => {
-  const session = await getServerSession();
-  const user = await getLoggedinUser(session?.user?.email);
+  const user = await getLoggedinUser();
 
   if (user) {
     return (
